@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Ubuntu:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Colors */
+  --primary: 211 100% 35%;
+  --primary-hover: 211 100% 30%;
+  --secondary: 219 14% 60%;
+  --accent: 35 100% 50%;
+
+  /* Backgrounds & Surfaces (Light Mode Default) */
+  --bg-main: 0 0% 98%;
+  --bg-surface: 0 0% 100%;
+  --bg-surface-hover: 216 38% 95%;
+
+  /* Text Colors (Light Mode Default) */
+  --text-primary: 210 11% 15%;
+  --text-secondary: 219 14% 40%;
+  --text-disabled: 219 14% 80%;
+
+  /* Status Colors */
+  --success: 152 63% 43%;
+  --warning: 35 100% 50%;
+  --error: 0 79% 63%;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  
+  /* UI/UX Animations (Apple Spring feel) */
+  --transition-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-duration: 0.3s;
+}
+
+[data-theme="dark"] {
+  /* Backgrounds & Surfaces (Dark Mode) */
+  --bg-main: 210 11% 10%;
+  --bg-surface: 210 11% 15%;
+  --bg-surface-hover: 210 11% 20%;
+
+  /* Text Colors (Dark Mode) */
+  --text-primary: 0 0% 95%;
+  --text-secondary: 219 14% 60%;
+  --text-disabled: 219 14% 30%;
+  
+  /* Dark mode specific tweaks */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -1px rgba(0,0,0,0.3);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -2px rgba(0,0,0,0.4);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-main: 210 11% 10%;
+    --bg-surface: 210 11% 15%;
+    --bg-surface-hover: 210 11% 20%;
+    --text-primary: 0 0% 95%;
+    --text-secondary: 219 14% 60%;
+    --text-disabled: 219 14% 30%;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -1px rgba(0,0,0,0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -2px rgba(0,0,0,0.4);
+  }
+}
+
+body {
+  font-family: 'Inter', 'Ubuntu', sans-serif;
+  background-color: hsl(var(--bg-main));
+  color: hsl(var(--text-primary));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Montserrat', 'Ubuntu', sans-serif;
+  font-weight: 800; /* Montserrat Black для мощного вида заголовков */
+}
+
+/* Base Utility Classes mapped to CSS Variables to simulate Tailwind setup */
+.bg-main { background-color: hsl(var(--bg-main)); }
+.bg-surface { background-color: hsl(var(--bg-surface)); }
+.bg-surface-hover:hover { background-color: hsl(var(--bg-surface-hover)); }
+
+.text-primary { color: hsl(var(--text-primary)); }
+.text-secondary { color: hsl(var(--text-secondary)); }
+.text-disabled { color: hsl(var(--text-disabled)); }
+
+.text-brand { color: hsl(var(--primary)); }
+.text-success { color: hsl(var(--success)); }
+.text-warning { color: hsl(var(--warning)); }
+.text-error { color: hsl(var(--error)); }
+.text-accent { color: hsl(var(--accent)); }
+
+.border-surface { border-color: hsl(var(--bg-surface-hover)); }
+
+.shadow-sm { box-shadow: var(--shadow-sm); }
+.shadow-md { box-shadow: var(--shadow-md); }
+.shadow-lg { box-shadow: var(--shadow-lg); }
+
+.rounded-sm { border-radius: var(--radius-sm); }
+.rounded-md { border-radius: var(--radius-md); }
+.rounded-lg { border-radius: var(--radius-lg); }
+.rounded-xl { border-radius: var(--radius-xl); }
+
+/* Interactive Utilities (Apple Spring/Geist feel) */
+.btn-spring {
+  transition: transform 0.15s var(--transition-spring), background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-spring:active {
+  transform: scale(0.96);
+}
+
+/* Custom Scrollbar for better UI feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--text-disabled));
+  border-radius: var(--radius-md);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--text-secondary));
+}
