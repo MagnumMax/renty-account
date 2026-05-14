@@ -2,7 +2,7 @@
 <html lang="ru" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Renty Client Cabinet</title>
   
   <!-- Tailwind CSS via CDN -->
@@ -40,8 +40,8 @@
             error: 'hsl(var(--error) / <alpha-value>)',
           },
           fontFamily: {
-            sans: ['Inter', 'Ubuntu', 'sans-serif'],
-            heading: ['Montserrat', 'Ubuntu', 'sans-serif'],
+            sans: ['"SF Pro Text"', '"SF Pro Display"', 'Geist', 'Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
+            heading: ['"SF Pro Display"', '"SF Pro Text"', 'Geist', 'Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
           },
           borderRadius: {
             sm: 'var(--radius-sm)',
@@ -60,73 +60,91 @@
   </script>
 </head>
 <body class="bg-main text-text-main antialiased min-h-[100dvh] flex flex-col">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[120] focus:rounded-md focus:bg-surface focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-text-main focus:shadow-lg">Перейти к основному контенту</a>
+  <svg aria-hidden="true" class="absolute w-0 h-0 overflow-hidden pointer-events-none">
+    <symbol id="logo-renty" viewBox="0 0 137 30">
+      <path d="M67.4804 19.751L71.5531 9.96429H75.5726L69.0609 25.2591C68.5965 26.4198 68.0606 27.3306 67.4532 27.9913C66.8637 28.652 66.2027 29.1163 65.4703 29.3842C64.7558 29.652 63.9607 29.7858 63.0854 29.7858C62.3351 29.7858 61.5937 29.6697 60.8613 29.4376C60.1288 29.2054 59.5303 28.8842 59.0658 28.4735L60.5932 25.5002C60.9148 25.7859 61.2811 26.009 61.692 26.1697C62.1207 26.3304 62.5405 26.4108 62.9513 26.4108C63.5408 26.4108 64.0053 26.268 64.3447 25.9824C64.702 25.7145 65.0236 25.259 65.3094 24.6161L65.3604 24.4952L59.1195 9.96429H63.4337L67.4804 19.751Z" fill="currentColor"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M24.6011 9.75006C26.0123 9.75008 27.2806 10.0536 28.406 10.6607C29.5493 11.25 30.4515 12.1072 31.1125 13.2321C31.7734 14.3392 32.1041 15.6697 32.1041 17.2232C32.1041 17.3839 32.0951 17.5717 32.0772 17.7859C32.0593 17.9823 32.0413 18.1699 32.0235 18.3484H21.1161C21.2003 18.732 21.3346 19.0892 21.5194 19.4199C21.8767 20.0091 22.3679 20.4644 22.9931 20.7858C23.6362 21.0894 24.3866 21.2411 25.244 21.2411C26.0122 21.2411 26.6822 21.1251 27.2538 20.8929C27.8433 20.6608 28.3792 20.3126 28.8615 19.8483L31.0856 22.2589C30.4246 23.0089 29.5941 23.5895 28.5938 24.0002C27.5934 24.3931 26.441 24.5895 25.1369 24.5895C23.4934 24.5895 22.0464 24.268 20.7959 23.6252C19.5632 22.9823 18.6074 22.1072 17.9285 21.0001C17.2497 19.8751 16.9104 18.5983 16.9103 17.1698C16.9103 15.7234 17.241 14.4464 17.9019 13.3392C18.5808 12.2143 19.5007 11.3394 20.6618 10.7144C21.823 10.0716 23.1362 9.75006 24.6011 9.75006ZM24.6276 12.9108C23.9132 12.9108 23.2791 13.0716 22.7253 13.3929C22.1894 13.6965 21.7694 14.1341 21.4657 14.7055C21.2698 15.0626 21.1374 15.4644 21.0679 15.9106H28.1663C28.0986 15.4568 27.9646 15.046 27.7631 14.6786C27.4594 14.1251 27.0393 13.6965 26.5034 13.3929C25.9675 13.0715 25.3422 12.9108 24.6276 12.9108Z" fill="currentColor"/>
+      <path d="M55.4242 9.96429H58.7014V13.1787H55.4242V19.3661C55.4242 19.9733 55.585 20.4465 55.9066 20.7858C56.2281 21.1072 56.6657 21.268 57.2194 21.268C57.8803 21.268 58.4432 21.0893 58.9077 20.7321L60.0333 23.6786C59.6046 23.9821 59.0864 24.2143 58.479 24.375C57.8895 24.5179 57.273 24.5895 56.6298 24.5895C54.9328 24.5895 53.6108 24.1609 52.664 23.3038C51.7172 22.4288 51.2438 21.1341 51.2438 19.4199V13.1787H49.0197V9.96429H51.2438V6.77673H55.4242V9.96429Z" fill="currentColor"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M8.11939 5.625C9.79863 5.625 11.2456 5.90181 12.4604 6.45538C13.6752 6.9911 14.613 7.76786 15.274 8.78571C15.935 9.80356 16.2656 11.0179 16.2656 12.4286C16.2656 13.8214 15.935 15.0268 15.274 16.0446C14.613 17.0446 13.6752 17.8127 12.4604 18.3484C12.4481 18.3538 12.4355 18.3586 12.4232 18.364L16.614 24.375H11.9246L8.32271 19.1498C8.25532 19.1507 8.18755 19.1519 8.11939 19.1519H4.34102V24.375H0V5.625H8.11939ZM4.34102 15.6964H7.8782C9.21793 15.6964 10.2183 15.4108 10.8793 14.8395C11.5403 14.2502 11.8709 13.4465 11.8709 12.4286C11.8709 11.3929 11.5402 10.5894 10.8793 10.018C10.2183 9.44658 9.21801 9.16077 7.8782 9.16077H4.34102V15.6964Z" fill="currentColor"/>
+      <path d="M42.3099 9.75006C43.4531 9.75008 44.4715 9.9822 45.3647 10.4465C46.2757 10.8929 46.9901 11.5894 47.5082 12.5357C48.0262 13.4643 48.2855 14.6609 48.2855 16.1252V24.375H44.105V16.7679C44.105 15.6072 43.8461 14.75 43.328 14.1965C42.8278 13.6429 42.1132 13.3661 41.1842 13.3661C40.5233 13.3661 39.9247 13.5088 39.3888 13.7946C38.8707 14.0624 38.46 14.4823 38.1563 15.0537C37.8705 15.6251 37.7277 16.3572 37.7277 17.2501V24.375H33.5472V9.96429H37.5399V11.6772C37.9536 11.2162 38.4446 10.8323 39.0139 10.5267C39.9785 10.0089 41.0773 9.75006 42.3099 9.75006Z" fill="currentColor"/>
+      <path d="M75.7063 19.411C76.4397 19.411 77.0568 19.6525 77.5577 20.1355C78.0586 20.6007 78.309 21.218 78.309 21.9873C78.309 22.7566 78.0586 23.3916 77.5577 23.8925C77.0568 24.3755 76.4397 24.6173 75.7063 24.6173C74.9907 24.6173 74.3734 24.3756 73.8546 23.8925C73.3537 23.3916 73.1033 22.7566 73.1032 21.9873C73.1032 21.218 73.3536 20.6007 73.8546 20.1355C74.3733 19.6525 74.9907 19.411 75.7063 19.411Z" fill="#32BCFF"/>
+      <path d="M87.8548 9.75006C89.3754 9.75007 90.6992 10.0722 91.8262 10.7162C92.9532 11.3424 93.7851 12.2458 94.3218 13.4265L91.0749 15.1709C90.6992 14.4911 90.2252 13.9902 89.6528 13.6682C89.0983 13.3462 88.4899 13.1851 87.828 13.1851C87.1124 13.1851 86.4681 13.3462 85.8957 13.6682C85.3233 13.9902 84.8672 14.4463 84.5273 15.0366C84.2053 15.627 84.0443 16.3427 84.0442 17.1835C84.0442 18.0244 84.2053 18.7401 84.5273 19.3304C84.8672 19.9208 85.3232 20.3771 85.8957 20.6992C86.4681 21.0212 87.1124 21.1823 87.828 21.1823C88.4899 21.1822 89.0983 21.0301 89.6528 20.726C90.2253 20.404 90.6992 19.8939 91.0749 19.1962L94.3218 20.9674C93.7851 22.1303 92.9533 23.0339 91.8262 23.678C90.6992 24.3041 89.3754 24.6173 87.8548 24.6173C86.2984 24.6173 84.9119 24.3041 83.6954 23.678C82.4789 23.0339 81.5219 22.1482 80.8242 21.0211C80.1444 19.894 79.8043 18.6148 79.8043 17.1835C79.8043 15.7344 80.1444 14.4551 80.8242 13.3459C81.5219 12.2189 82.479 11.3424 83.6954 10.7162C84.912 10.0722 86.2984 9.75006 87.8548 9.75006Z" fill="#32BCFF"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M102.529 9.75006C104.049 9.75006 105.409 10.0722 106.607 10.7162C107.806 11.3424 108.745 12.2099 109.425 13.3191C110.105 14.4283 110.445 15.7165 110.445 17.1835C110.445 18.6147 110.105 19.894 109.425 21.0211C108.745 22.1303 107.806 23.0071 106.607 23.6511C105.409 24.2952 104.049 24.6173 102.529 24.6173C100.99 24.6173 99.6215 24.2952 98.4229 23.6511C97.2422 23.0071 96.3031 22.1303 95.6053 21.0211C94.9255 19.894 94.5855 18.6148 94.5855 17.1835C94.5855 15.7344 94.9255 14.4551 95.6053 13.3459C96.303 12.2189 97.2422 11.3424 98.4229 10.7162C99.6215 10.0722 100.99 9.75006 102.529 9.75006ZM102.529 13.1851C101.831 13.1851 101.205 13.3462 100.65 13.6682C100.096 13.9902 99.6484 14.4463 99.3085 15.0366C98.9865 15.627 98.8254 16.3427 98.8254 17.1835C98.8254 18.0065 98.9865 18.7222 99.3085 19.3304C99.6484 19.9208 100.095 20.3771 100.65 20.6992C101.205 21.0212 101.831 21.1823 102.529 21.1823C103.226 21.1823 103.853 21.0212 104.407 20.6992C104.962 20.3771 105.4 19.9208 105.722 19.3304C106.044 18.7222 106.205 18.0065 106.205 17.1835C106.205 16.3427 106.044 15.627 105.722 15.0366C105.4 14.4464 104.962 13.9902 104.407 13.6682C103.853 13.3462 103.226 13.1851 102.529 13.1851Z" fill="#32BCFF"/>
+      <path d="M130.346 9.75006C131.491 9.75006 132.502 9.98254 133.379 10.4477C134.273 10.895 134.971 11.5927 135.472 12.5409C135.991 13.4712 136.25 14.6701 136.25 16.1371V24.4025H132.064V16.781C132.064 15.6182 131.822 14.7593 131.339 14.2047C130.856 13.6501 130.176 13.3728 129.3 13.3728C128.691 13.3728 128.146 13.516 127.663 13.8022C127.18 14.0705 126.804 14.4821 126.536 15.0366C126.267 15.5912 126.133 16.298 126.133 17.1567V24.4025H121.947V16.781C121.947 15.6182 121.706 14.7593 121.223 14.2047C120.757 13.6502 120.087 13.3728 119.21 13.3728C118.602 13.3728 118.056 13.5159 117.573 13.8022C117.09 14.0705 116.714 14.4821 116.446 15.0366C116.178 15.5912 116.043 16.298 116.043 17.1567V24.4025H111.857V9.9646H115.856V11.6312C116.244 11.1839 116.7 10.816 117.224 10.5283C118.154 10.0094 119.21 9.75006 120.391 9.75006C121.714 9.75008 122.868 10.0901 123.852 10.77C124.376 11.116 124.807 11.5596 125.145 12.1011C125.56 11.5729 126.069 11.1203 126.67 10.7431C127.743 10.0812 128.969 9.75006 130.346 9.75006Z" fill="#32BCFF"/>
+    </symbol>
+  </svg>
 
   <!-- ==========================================
        LOGIN VIEW (Unauthenticated State)
        ========================================== -->
-  <div id="view-login" class="flex-1 flex flex-col items-center justify-center p-4">
-    <div class="w-full max-w-md bg-surface rounded-2xl shadow-lg border border-surface-hover p-6 md:p-8 space-y-8">
+  <div id="view-login" class="flex-1 flex flex-col items-center justify-center p-4 sm:p-6">
+    <div class="w-full max-w-md bg-surface rounded-2xl shadow-lg border border-surface-hover p-5 sm:p-6 md:p-8 space-y-7">
       
       <!-- Header -->
       <div class="text-center space-y-2">
-        <div class="w-12 h-12 bg-brand rounded-lg flex items-center justify-center text-white font-heading text-2xl shadow-sm mx-auto mb-4" aria-hidden="true">R</div>
-        <h1 class="font-heading text-2xl" id="login-title">Вход в личный кабинет</h1>
-        <p class="text-text-muted text-sm">Управляйте своими бронированиями легко</p>
+        <div class="flex justify-center mb-6">
+          <svg viewBox="0 0 137 30" aria-hidden="true" class="h-10 w-auto text-text-main transition-all duration-300 shrink-0">
+            <use href="#logo-renty"></use>
+          </svg>
+        </div>
+        <h1 class="font-heading text-2xl tracking-tight" id="login-title">Вход в личный кабинет</h1>
+        <p class="text-text-muted text-sm leading-6">Проверьте аренды, платежи и документы с телефона за пару касаний.</p>
       </div>
 
       <!-- Auth Form (Step 1: Email) -->
-      <div id="login-step-email" class="space-y-5" role="form" aria-labelledby="login-title">
+      <form id="login-step-email" class="space-y-5" aria-labelledby="login-title" novalidate>
         <div class="space-y-1.5">
           <label for="login-email" class="text-sm font-medium text-text-main cursor-pointer">Email адрес</label>
           <div class="relative group">
             <ion-icon name="mail-outline" aria-hidden="true" class="absolute left-3 top-1/2 -translate-y-1/2 text-text-muted text-lg transition-colors group-focus-within:text-brand"></ion-icon>
-            <input id="login-email" type="email" value="client@renty.ae" placeholder="name@example.com" required aria-required="true" class="w-full min-h-[44px] bg-main border border-surface-hover rounded-md py-2.5 pl-10 pr-4 text-text-main focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all">
+            <input id="login-email" type="email" value="client@renty.ae" placeholder="name@example.com" autocomplete="email" inputmode="email" required aria-required="true" class="w-full min-h-[48px] bg-main border border-surface-hover rounded-md py-2.5 pl-10 pr-4 text-base text-text-main focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all">
           </div>
-          <p class="text-xs text-text-muted mt-1">Для тестов используйте <span class="font-medium text-text-main">client@renty.ae</span></p>
+          <p class="text-sm text-text-muted mt-1">Для тестов используйте <span class="font-medium text-text-main">client@renty.ae</span></p>
         </div>
         
-        <button id="btn-send-code" class="w-full min-h-[44px] bg-brand hover:bg-brand-hover text-white rounded-md font-medium btn-spring shadow-sm flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2">
+        <button type="submit" id="btn-send-code" class="w-full min-h-[48px] bg-brand hover:bg-brand-hover text-white rounded-md font-medium btn-spring shadow-sm flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2">
           Получить код
         </button>
 
         <!-- Social Login Separator -->
         <div class="relative flex items-center py-2" aria-hidden="true">
           <div class="flex-grow border-t border-surface-hover"></div>
-          <span class="flex-shrink-0 mx-4 text-text-disabled text-xs uppercase font-medium">Или войти через</span>
+          <span class="flex-shrink-0 mx-4 text-text-disabled text-xs uppercase font-medium tracking-[0.14em]">Или войти через</span>
           <div class="flex-grow border-t border-surface-hover"></div>
         </div>
 
         <div class="grid grid-cols-2 gap-3">
-          <button class="w-full min-h-[44px] bg-surface border border-surface-hover hover:bg-surface-hover text-text-main rounded-md font-medium btn-spring flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+          <button type="button" data-toast-message="Вход через Google пока в демо-режиме" data-toast-tone="info" class="w-full min-h-[48px] bg-surface border border-surface-hover hover:bg-surface-hover text-text-main rounded-md font-medium btn-spring flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand">
             <ion-icon name="logo-google" class="text-lg" aria-hidden="true"></ion-icon> Google
           </button>
-          <button class="w-full min-h-[44px] bg-surface border border-surface-hover hover:bg-surface-hover text-text-main rounded-md font-medium btn-spring flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+          <button type="button" data-toast-message="Вход через Apple пока в демо-режиме" data-toast-tone="info" class="w-full min-h-[48px] bg-surface border border-surface-hover hover:bg-surface-hover text-text-main rounded-md font-medium btn-spring flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand">
             <ion-icon name="logo-apple" class="text-lg" aria-hidden="true"></ion-icon> Apple
           </button>
         </div>
-      </div>
+      </form>
 
       <!-- Auth Form (Step 2: OTP Code - Hidden initially) -->
-      <div id="login-step-code" class="hidden space-y-6" role="form" aria-labelledby="login-title">
+      <form id="login-step-code" class="hidden space-y-6" aria-labelledby="login-title">
         <div class="text-center">
           <p class="text-sm text-text-main mb-4" aria-live="polite">Мы отправили 4-значный код на <br><span id="display-email" class="font-medium">client@renty.ae</span></p>
           
           <!-- OTP Inputs -->
           <div class="flex justify-center gap-3 mb-2" role="group" aria-label="Ввод проверочного кода">
-            <input type="text" maxlength="1" aria-label="Цифра 1" class="otp-input w-12 h-14 bg-main border border-surface-hover rounded-md text-center text-xl font-bold focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all" value="1">
-            <input type="text" maxlength="1" aria-label="Цифра 2" class="otp-input w-12 h-14 bg-main border border-surface-hover rounded-md text-center text-xl font-bold focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all" value="2">
-            <input type="text" maxlength="1" aria-label="Цифра 3" class="otp-input w-12 h-14 bg-main border border-surface-hover rounded-md text-center text-xl font-bold focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all" value="3">
-            <input type="text" maxlength="1" aria-label="Цифра 4" class="otp-input w-12 h-14 bg-main border border-surface-hover rounded-md text-center text-xl font-bold focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all" value="4">
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]*" autocomplete="one-time-code" aria-label="Цифра 1" class="otp-input w-12 h-14 bg-main border border-surface-hover rounded-md text-center text-xl font-semibold focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all" value="1">
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]*" aria-label="Цифра 2" class="otp-input w-12 h-14 bg-main border border-surface-hover rounded-md text-center text-xl font-semibold focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all" value="2">
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]*" aria-label="Цифра 3" class="otp-input w-12 h-14 bg-main border border-surface-hover rounded-md text-center text-xl font-semibold focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all" value="3">
+            <input type="text" maxlength="1" inputmode="numeric" pattern="[0-9]*" aria-label="Цифра 4" class="otp-input w-12 h-14 bg-main border border-surface-hover rounded-md text-center text-xl font-semibold focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand transition-all" value="4">
           </div>
-          <p class="text-xs text-text-muted mb-4">Тестовый код: 1234</p>
+          <p class="text-sm text-text-muted mb-4">Тестовый код: 1234</p>
           
-          <button class="text-brand text-sm font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded px-1">Отправить код еще раз</button>
+          <button type="button" data-toast-message="Код отправлен повторно" data-toast-tone="success" class="text-brand text-sm font-medium hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand rounded px-1">Отправить код еще раз</button>
         </div>
 
-        <button id="btn-verify-code" class="w-full min-h-[44px] bg-brand hover:bg-brand-hover text-white rounded-md font-medium btn-spring shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2">
+        <button type="submit" id="btn-verify-code" class="w-full min-h-[48px] bg-brand hover:bg-brand-hover text-white rounded-md font-medium btn-spring shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2">
           Войти
         </button>
-      </div>
+      </form>
 
     </div>
   </div>
@@ -138,24 +156,29 @@
   <div id="view-app" class="hidden fixed inset-0 flex flex-col md:flex-row bg-main z-40 overflow-hidden">
     
     <!-- Sidebar (Desktop) -->
-    <aside class="hidden md:flex flex-col w-64 lg:w-72 bg-surface border-r border-surface-hover h-full shrink-0 shadow-sm z-10">
-      <div class="p-6 flex items-center gap-3">
-        <div class="w-8 h-8 bg-brand rounded-md flex items-center justify-center text-white font-heading text-xl shadow-sm" aria-hidden="true">R</div>
-        <span class="font-heading text-xl tracking-wide">Renty</span>
-      </div>
+    <aside id="sidebar-desktop" class="hidden md:flex flex-col w-64 lg:w-72 bg-brand text-white h-full shrink-0 shadow-sm z-10 transition-all duration-300 relative group">
+      <button id="btn-collapse-sidebar" class="absolute -right-3 top-6 w-6 h-6 bg-surface border border-surface-hover rounded-full flex items-center justify-center text-brand hover:text-brand hover:border-brand shadow-sm z-20 transition-all opacity-100">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </button>
+      <div class="p-6 flex items-center gap-3 sidebar-logo">
+        <a href="#" class="nav-item" data-target="dashboard" aria-label="Renty, перейти на дашборд" data-toast-message="Переход на главную" data-toast-tone="info">
+        <svg viewBox="0 0 137 30" aria-hidden="true" class="h-6 sm:h-7 w-auto text-white sidebar-text transition-all duration-300 shrink-0">
+          <use href="#logo-renty"></use>
+        </svg>
+      </a></div>
 
-      <nav class="flex-1 px-4 space-y-1.5 overflow-y-auto mt-2" aria-label="Основная навигация">
-        <button class="nav-item active w-full flex items-center gap-3 px-4 min-h-[44px] rounded-lg text-sm font-semibold transition-all btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand" data-target="dashboard" aria-current="page">
-          <ion-icon name="grid-outline" class="text-xl" aria-hidden="true"></ion-icon> Дашборд
+      <nav class="flex-1 px-4 space-y-1.5 overflow-y-auto mt-2 overflow-x-hidden" aria-label="Основная навигация">
+        <button class="nav-item active w-full flex items-center gap-3 px-4 min-h-[44px] rounded-lg text-sm font-semibold transition-all btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand" data-target="dashboard" aria-current="page" title="Дашборд">
+          <ion-icon name="grid-outline" class="text-xl shrink-0" aria-hidden="true"></ion-icon> <span class="sidebar-text whitespace-nowrap">Дашборд</span>
         </button>
-        <button class="nav-item w-full flex items-center gap-3 px-4 min-h-[44px] rounded-lg text-sm font-medium text-text-muted hover:text-text-main hover:bg-surface-hover transition-all btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand" data-target="bookings">
-          <ion-icon name="car-sport-outline" class="text-xl" aria-hidden="true"></ion-icon> Мои бронирования
+        <button class="nav-item w-full flex items-center gap-3 px-4 min-h-[44px] rounded-lg text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 transition-all btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand" data-target="bookings" title="Мои бронирования">
+          <ion-icon name="car-sport-outline" class="text-xl shrink-0" aria-hidden="true"></ion-icon> <span class="sidebar-text whitespace-nowrap">Мои бронирования</span>
         </button>
-        <button class="nav-item w-full flex items-center gap-3 px-4 min-h-[44px] rounded-lg text-sm font-medium text-text-muted hover:text-text-main hover:bg-surface-hover transition-all btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand" data-target="finance">
-          <ion-icon name="receipt-outline" class="text-xl" aria-hidden="true"></ion-icon> Штрафы и Счета
+        <button class="nav-item w-full flex items-center gap-3 px-4 min-h-[44px] rounded-lg text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 transition-all btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand" data-target="finance" title="Штрафы и Счета">
+          <ion-icon name="receipt-outline" class="text-xl shrink-0" aria-hidden="true"></ion-icon> <span class="sidebar-text whitespace-nowrap">Штрафы и Счета</span>
         </button>
-        <button class="nav-item w-full flex items-center gap-3 px-4 min-h-[44px] rounded-lg text-sm font-medium text-text-muted hover:text-text-main hover:bg-surface-hover transition-all btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand" data-target="settings">
-          <ion-icon name="settings-outline" class="text-xl" aria-hidden="true"></ion-icon> Настройки
+        <button class="nav-item w-full flex items-center gap-3 px-4 min-h-[44px] rounded-lg text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 transition-all btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand" data-target="settings" title="Настройки">
+          <ion-icon name="settings-outline" class="text-xl shrink-0" aria-hidden="true"></ion-icon> <span class="sidebar-text whitespace-nowrap">Настройки</span>
         </button>
       </nav>
 
@@ -165,29 +188,29 @@
         <!-- Popover Menu -->
         <div id="profile-dropdown-desktop" class="hidden absolute bottom-full left-4 right-4 mb-2 bg-surface border border-surface-hover shadow-lg rounded-xl overflow-hidden z-50 transition-all origin-bottom">
           <div class="p-2 space-y-0.5">
-            <button class="nav-item w-full flex items-center gap-3 px-3 min-h-[40px] rounded-lg text-sm font-medium text-text-muted hover:text-text-main hover:bg-surface-hover transition-all" data-target="settings">
+            <button class="nav-item w-full flex items-center gap-3 px-3 min-h-[40px] rounded-lg text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 transition-all" data-target="settings">
               <ion-icon name="person-outline" class="text-lg"></ion-icon> Мой профиль
             </button>
-            <button class="w-full flex items-center gap-3 px-3 min-h-[40px] rounded-lg text-sm font-medium text-text-muted hover:text-text-main hover:bg-surface-hover transition-all">
+            <button type="button" data-toast-message="Чат с поддержкой пока в демо-режиме" data-toast-tone="info" class="w-full flex items-center gap-3 px-3 min-h-[40px] rounded-lg text-sm font-medium text-white/90 hover:text-white hover:bg-white/10 transition-all">
               <ion-icon name="help-circle-outline" class="text-lg"></ion-icon> Поддержка
             </button>
             <div class="h-px bg-surface-hover my-1"></div>
-            <button id="btn-logout" class="w-full flex items-center gap-3 px-3 min-h-[40px] rounded-lg text-sm font-medium text-error hover:bg-error/10 transition-colors">
+            <button id="btn-logout" class="w-full flex items-center gap-3 px-3 min-h-[40px] rounded-lg text-sm font-medium text-white hover:bg-error transition-colors">
               <ion-icon name="log-out-outline" class="text-lg"></ion-icon> Выйти
             </button>
           </div>
         </div>
 
         <!-- Trigger Button -->
-        <button id="btn-profile-desktop" class="w-full flex items-center justify-between p-2 hover:bg-surface-hover rounded-xl transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+        <button id="btn-profile-desktop" class="w-full flex items-center justify-between p-2 hover:bg-surface-hover rounded-xl transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand overflow-hidden" title="Максим Г.">
           <div class="flex items-center gap-3">
-            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100&h=100" alt="Avatar" class="w-10 h-10 rounded-full object-cover border border-surface-hover shadow-sm">
-            <div class="flex flex-col text-left">
-              <span class="text-sm font-semibold text-text-main leading-tight">Максим Г.</span>
-              <span class="text-[10px] text-brand font-medium mt-0.5">Premium Member</span>
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100&h=100" alt="Avatar" class="w-10 h-10 rounded-full object-cover border border-surface-hover shadow-sm shrink-0">
+            <div class="flex flex-col text-left sidebar-text">
+              <span class="text-sm font-semibold text-white leading-tight whitespace-nowrap">Максим Г.</span>
+              <span class="text-xs text-white/70 font-medium mt-0.5 whitespace-nowrap">Клиент Renty</span>
             </div>
           </div>
-          <ion-icon name="chevron-up-outline" class="text-text-muted group-hover:text-text-main transition-colors text-sm"></ion-icon>
+          <ion-icon name="chevron-up-outline" class="text-white/90 group-hover:text-white transition-colors text-sm shrink-0 sidebar-text"></ion-icon>
         </button>
       </div>
     </aside>
@@ -196,25 +219,31 @@
     <div class="flex-1 flex flex-col h-full overflow-hidden relative">
       
       <!-- Mobile Header -->
-      <header class="md:hidden bg-surface/80 backdrop-blur-md border-b border-surface-hover sticky top-0 z-40 px-4 py-3 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <div class="w-7 h-7 bg-brand rounded-md flex items-center justify-center text-white font-heading text-lg shadow-sm">R</div>
-          <span class="font-heading text-lg tracking-wide">Renty</span>
-        </div>
-        <button id="btn-mobile-menu" class="p-2 -mr-2 text-text-main rounded-md hover:bg-surface-hover transition-colors">
+      <header class="md:hidden bg-brand text-white sticky top-0 z-40 px-4 pb-3 pt-[calc(env(safe-area-inset-top,0px)+12px)] flex items-center justify-between shadow-sm">
+        <div class="flex items-center gap-2 min-w-0">
+          <a href="#" class="nav-item" data-target="dashboard" aria-label="Renty, перейти на дашборд" data-toast-message="Переход на главную" data-toast-tone="info">
+          <svg viewBox="0 0 137 30" aria-hidden="true" class="h-6 w-auto text-white transition-all duration-300 shrink-0">
+            <use href="#logo-renty"></use>
+          </svg>
+          </a></div>
+        <button id="btn-mobile-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-drawer" data-overlay-open="mobile-drawer" class="min-h-[44px] min-w-[44px] p-2 -mr-2 text-white rounded-md hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80">
           <ion-icon name="menu-outline" class="text-2xl"></ion-icon>
         </button>
       </header>
 
       <!-- Mobile Navigation Drawer -->
-      <div id="mobile-drawer-overlay" class="hidden md:hidden fixed inset-0 bg-text-main/40 backdrop-blur-sm z-50 transition-opacity"></div>
-      <div id="mobile-drawer" class="fixed md:hidden inset-y-0 right-0 z-[60] w-64 bg-surface shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col">
-        <div class="p-4 flex justify-end border-b border-surface-hover">
-          <button id="btn-close-menu" class="p-2 -mr-2 text-text-main rounded-md hover:bg-surface-hover transition-colors">
-            <ion-icon name="close-outline" class="text-2xl"></ion-icon>
+      <div id="mobile-drawer-overlay" class="hidden md:hidden fixed inset-0 bg-text-main/60 backdrop-blur-sm z-50 transition-opacity" aria-hidden="true" data-overlay-close="mobile-drawer"></div>
+      <div id="mobile-drawer" class="fixed md:hidden inset-y-0 right-0 z-[60] w-[86vw] max-w-sm bg-surface shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col" role="dialog" aria-modal="true" aria-labelledby="mobile-drawer-title" aria-hidden="true">
+        <div class="flex items-center justify-between px-4 pt-5 pb-3 border-b border-surface-hover">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-text-muted">Навигация</p>
+            <h2 id="mobile-drawer-title" class="text-lg font-heading tracking-tight text-text-main">Личный кабинет</h2>
+          </div>
+          <button id="btn-mobile-menu-close" type="button" aria-label="Закрыть меню" data-overlay-close="mobile-drawer" class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-full border border-surface-hover bg-main text-text-main transition-colors hover:bg-surface-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+            <ion-icon name="close-outline" class="text-xl" aria-hidden="true"></ion-icon>
           </button>
         </div>
-        <nav class="flex-1 p-4 space-y-2 overflow-y-auto">
+        <nav class="flex-1 p-4 space-y-2 overflow-y-auto" aria-label="Навигация в мобильном меню">
           <button class="nav-item active w-full flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium transition-colors" data-target="dashboard">
             <ion-icon name="grid-outline" class="text-xl"></ion-icon> Дашборд
           </button>
@@ -233,14 +262,14 @@
             <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=100&h=100" alt="Avatar" class="w-12 h-12 rounded-full object-cover border border-surface-hover shadow-sm">
             <div class="flex flex-col">
               <span class="text-base font-semibold text-text-main leading-tight">Максим Г.</span>
-              <span class="text-xs text-brand font-medium mt-0.5">Premium Member</span>
+              <span class="text-sm text-text-muted font-medium mt-0.5">Клиент Renty</span>
             </div>
           </div>
           <div class="space-y-1">
             <button class="nav-item w-full flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium text-text-muted hover:bg-surface-hover hover:text-text-main transition-colors" data-target="settings">
               <ion-icon name="person-outline" class="text-xl"></ion-icon> Мой профиль
             </button>
-            <button class="w-full flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium text-text-muted hover:bg-surface-hover hover:text-text-main transition-colors">
+            <button type="button" data-toast-message="Действие выполняется..." data-toast-tone="info" class="w-full flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium text-text-muted hover:bg-surface-hover hover:text-text-main transition-colors">
               <ion-icon name="help-circle-outline" class="text-xl"></ion-icon> Поддержка
             </button>
             <button class="w-full flex items-center gap-3 px-3 py-3 rounded-lg text-base font-medium text-error hover:bg-error/10 transition-colors" id="btn-logout-mobile">
@@ -254,19 +283,19 @@
       <main id="main-content" class="flex-1 overflow-y-auto p-4 md:p-8" tabindex="-1">
         
         <!-- PAGE: Dashboard -->
-        <div id="page-dashboard" class="page-content block max-w-5xl mx-auto space-y-8 pb-10">
+        <div id="page-dashboard" class="page-content block max-w-7xl w-full mx-auto space-y-8 pb-10">
           
           <!-- Welcome Section -->
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 md:gap-4">
             <div>
-              <h2 class="text-2xl md:text-3xl font-heading mb-1">С возвращением, Максим!</h2>
-              <p class="text-text-muted text-sm">Здесь собрана вся информация о ваших арендах.</p>
-            </div>
-            <div class="shrink-0">
-              <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-accent to-amber-500 text-white shadow-sm uppercase tracking-wide border border-white/20">
-                <ion-icon name="star"></ion-icon>
-                Premium Member
-              </span>
+              <div class="flex flex-wrap items-center gap-2.5 mb-1.5">
+                <h2 class="text-2xl md:text-3xl font-heading tracking-tight">С возвращением, Максим!</h2>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand/10 text-brand shadow-sm border border-brand/20">
+                  <ion-icon name="star" aria-hidden="true"></ion-icon>
+                  Premium
+                </span>
+              </div>
+              <p class="text-text-muted text-sm leading-6 max-w-xl">Сначала самое важное: текущая аренда, платежи и быстрые действия для поездки.</p>
             </div>
           </div>
 
@@ -278,7 +307,7 @@
               </div>
               <h3 class="text-xl font-semibold mb-2">У вас пока нет активных аренд</h3>
               <p class="text-text-muted mb-8 max-w-md">Выберите идеальный автомобиль для вашей следующей поездки из нашего каталога.</p>
-              <button class="bg-brand hover:bg-brand-hover text-white px-8 py-3 rounded-lg font-medium btn-spring shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-main">
+              <button type="button" data-toast-message="Действие выполняется..." data-toast-tone="info" class="bg-brand hover:bg-brand-hover text-white px-8 py-3 rounded-lg font-medium btn-spring shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-main">
                 Забронировать автомобиль
               </button>
             </div>
@@ -293,11 +322,11 @@
                 <ion-icon name="warning-outline" class="text-xl"></ion-icon>
               </div>
               <div class="flex-1">
-                <h3 class="font-semibold text-error text-base mb-0.5">Неоплаченный штраф</h3>
+                <h3 class="font-semibold text-text-main text-base mb-0.5">Неоплаченный штраф</h3>
                 <p class="text-sm text-text-muted">Превышение скорости на Sheikh Zayed Road (600 AED).</p>
               </div>
               <div class="shrink-0 w-full sm:w-auto">
-                <button class="w-full sm:w-auto bg-error hover:bg-error/90 text-white px-5 py-2.5 rounded-md font-medium text-sm btn-spring shadow-sm flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-error focus-visible:ring-offset-2 focus-visible:ring-offset-main">
+                <button type="button" data-overlay-open="modal-standard" class="w-full sm:w-auto bg-error hover:bg-error/90 text-white px-5 py-2.5 rounded-md font-medium text-sm btn-spring shadow-sm flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-error focus-visible:ring-offset-2 focus-visible:ring-offset-main">
                   <ion-icon name="card-outline"></ion-icon> Оплатить
                 </button>
               </div>
@@ -310,7 +339,7 @@
                 <div class="p-5 md:p-6 border-b border-surface-hover flex justify-between items-center bg-main/30">
                   <div class="flex items-center gap-3">
                     <h3 class="font-semibold text-lg md:text-xl">Audi RS Q8 2023</h3>
-                    <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] md:text-xs font-medium bg-success/10 text-success border border-success/20">Активно</span>
+                    <span class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-success/10 text-success border border-success/20">Активно</span>
                   </div>
                   <span class="text-sm font-medium text-text-muted">#RN-98234</span>
                 </div>
@@ -325,9 +354,9 @@
                   <div class="w-full sm:w-1/2 flex flex-col justify-center space-y-6">
                     <div class="flex justify-between items-center">
                       <div class="flex flex-col shrink-0">
-                        <span class="text-text-muted text-[10px] uppercase tracking-wider font-semibold mb-1">Получение</span>
-                        <span class="font-bold text-sm">12 Окт, 14:00</span>
-                        <span class="text-xs text-text-muted mt-0.5">Dubai Mall</span>
+                        <span class="text-text-muted text-xs uppercase tracking-[0.16em] font-semibold mb-1">Получение</span>
+                        <span class="font-bold text-sm">12 Мая, 14:00</span>
+                        <span class="text-sm text-text-muted mt-0.5">Dubai Mall</span>
                       </div>
                       <div class="flex-1 min-w-[40px] border-t-2 border-dashed border-surface-hover mx-3 md:mx-4 relative top-[-10px]">
                         <div class="absolute inset-0 flex items-center justify-center -mt-3 text-brand bg-surface px-1">
@@ -335,9 +364,9 @@
                         </div>
                       </div>
                       <div class="flex flex-col text-right shrink-0">
-                        <span class="text-text-muted text-[10px] uppercase tracking-wider font-semibold mb-1">Возврат</span>
-                        <span class="font-bold text-sm">15 Окт, 14:00</span>
-                        <span class="text-xs text-text-muted mt-0.5">Dubai Marina</span>
+                        <span class="text-text-muted text-xs uppercase tracking-[0.16em] font-semibold mb-1">Возврат</span>
+                        <span class="font-bold text-sm">16 Мая, 14:00</span>
+                        <span class="text-sm text-text-muted mt-0.5">Dubai Marina</span>
                       </div>
                     </div>
 
@@ -355,13 +384,13 @@
 
                 <!-- Action Buttons -->
                 <div class="p-4 md:p-5 bg-main/50 border-t border-surface-hover flex flex-col sm:flex-row gap-3 shrink-0">
-                  <button class="flex-1 bg-surface border border-surface-hover hover:bg-surface-hover text-text-main min-h-[44px] rounded-md font-medium text-sm btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-main">
-                    Сообщить о проблеме
-                  </button>
-                  <button onclick="document.getElementById('modal-standard').classList.remove('hidden')" class="flex-1 bg-brand hover:bg-brand-hover text-white min-h-[44px] rounded-md font-medium text-sm btn-spring shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-main">
+                  <button type="button" data-overlay-open="modal-extend" class="flex-1 bg-brand hover:bg-brand-hover text-white min-h-[44px] rounded-md font-medium text-sm btn-spring shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-main">
                     Продлить аренду
                   </button>
-                  <button onclick="document.getElementById('modal-destructive').classList.remove('hidden')" class="flex-1 sm:flex-none px-4 bg-error/10 hover:bg-error/20 text-error min-h-[44px] rounded-md font-medium text-sm btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-error focus-visible:ring-offset-2 focus-visible:ring-offset-main">
+                  <button type="button" data-toast-message="Поддержка свяжется с вами в течение 5 минут" data-toast-tone="info" class="flex-1 bg-surface border border-surface-hover hover:bg-surface-hover text-text-main min-h-[44px] rounded-md font-medium text-sm btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-main">
+                    Сообщить о проблеме
+                  </button>
+                  <button type="button" data-overlay-open="modal-destructive" class="flex-1 sm:flex-none px-4 bg-error/10 hover:bg-error/20 text-error min-h-[44px] rounded-md font-medium text-sm btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-error focus-visible:ring-offset-2 focus-visible:ring-offset-main">
                     Отменить
                   </button>
                 </div>
@@ -371,21 +400,36 @@
               <div class="space-y-6">
                 
                 <!-- CTA Banner -->
-                <div class="bg-gradient-to-br from-brand to-blue-700 rounded-xl shadow-md overflow-hidden relative p-5">
-                  <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xNSkiLz48L3N2Zz4=')] opacity-30"></div>
+                <div class="bg-surface rounded-xl shadow-sm overflow-hidden relative p-5 border border-brand/20">
                   <div class="relative z-10">
-                    <span class="inline-block px-2 py-0.5 bg-white/20 text-white text-[10px] font-bold uppercase tracking-wider rounded backdrop-blur-sm mb-2">Upgrade</span>
-                    <h3 class="text-white text-lg font-semibold mb-1">Спортивный выхлоп</h3>
-                    <p class="text-blue-100 text-xs mb-4">Разблокируйте полное звучание двигателя V8.</p>
-                    <button class="w-full bg-white text-brand py-2 rounded-md font-medium text-sm btn-spring shadow-sm">
-                      Добавить за 200 AED
+                    <span class="inline-flex items-center px-2.5 py-1 bg-brand/10 text-brand text-xs font-semibold rounded-full mb-2">Доп. опция</span>
+                    <h3 class="text-text-main text-lg font-semibold mb-1">Расширенная страховка SCDW</h3>
+                    <p class="text-text-muted text-sm leading-6 mb-3">Для вашей текущей аренды Audi RS Q8. Снижает финансовую ответственность при повреждениях и делает поездку спокойнее каждый день.</p>
+                    <div class="mb-4 rounded-lg bg-brand/5 border border-brand/10 p-3">
+                      <ul class="space-y-2 text-sm text-text-main">
+                        <li class="flex items-start gap-2">
+                          <ion-icon name="shield-checkmark-outline" class="text-brand text-base mt-0.5 shrink-0" aria-hidden="true"></ion-icon>
+                          <span>Покрытие при кузовных повреждениях</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <ion-icon name="cash-outline" class="text-brand text-base mt-0.5 shrink-0" aria-hidden="true"></ion-icon>
+                          <span>Меньше расходов при страховом случае</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                          <ion-icon name="checkmark-circle-outline" class="text-brand text-base mt-0.5 shrink-0" aria-hidden="true"></ion-icon>
+                          <span>Спокойнее на парковке и в городе</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <button type="button" data-toast-message="Опция сохранена в подборку менеджера" data-toast-tone="success" class="w-full bg-main text-text-main border border-surface-hover hover:bg-surface-hover py-2.5 rounded-md font-medium text-sm btn-spring shadow-sm">
+                      Добавить за 350 AED
                     </button>
                   </div>
                 </div>
 
                 <!-- Useful Links -->
                 <div class="bg-surface rounded-xl shadow-sm border border-surface-hover/50 p-1">
-                  <button class="w-full flex items-center justify-between p-3 hover:bg-main rounded-lg transition-colors group">
+                  <button type="button" data-toast-message="Действие выполняется..." data-toast-tone="info" class="w-full flex items-center justify-between p-3 hover:bg-main rounded-lg transition-colors group">
                     <div class="flex items-center gap-3">
                       <div class="w-8 h-8 rounded-full bg-surface-hover text-text-muted flex items-center justify-center group-hover:text-brand group-hover:bg-brand/10 transition-colors">
                         <ion-icon name="document-text-outline"></ion-icon>
@@ -394,7 +438,7 @@
                     </div>
                     <ion-icon name="chevron-forward-outline" class="text-text-disabled group-hover:text-text-muted transition-colors"></ion-icon>
                   </button>
-                  <button class="w-full flex items-center justify-between p-3 hover:bg-main rounded-lg transition-colors group">
+                  <button type="button" data-toast-message="Действие выполняется..." data-toast-tone="info" class="w-full flex items-center justify-between p-3 hover:bg-main rounded-lg transition-colors group">
                     <div class="flex items-center gap-3">
                       <div class="w-8 h-8 rounded-full bg-surface-hover text-text-muted flex items-center justify-center group-hover:text-brand group-hover:bg-brand/10 transition-colors">
                         <ion-icon name="camera-outline"></ion-icon>
@@ -412,7 +456,7 @@
         </div>
 
         <!-- PAGE: Bookings -->
-        <div id="page-bookings" class="page-content hidden max-w-4xl mx-auto space-y-6 pb-10">
+        <div id="page-bookings" class="page-content hidden max-w-7xl w-full mx-auto space-y-6 pb-10">
           
           <!-- Header & Filters -->
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-2">
@@ -436,13 +480,61 @@
           <!-- Booking History List -->
           <div class="space-y-4 md:space-y-5">
             
+            <!-- Active Booking Card -->
+            <div class="bg-surface rounded-xl shadow-md border border-brand/30 overflow-hidden flex flex-col md:flex-row group hover:shadow-lg transition-shadow relative">
+              <div class="absolute top-0 left-0 w-1 h-full bg-brand"></div>
+              <!-- Image -->
+              <div class="w-full md:w-56 h-48 md:h-auto bg-main relative shrink-0">
+                <img src="https://images.unsplash.com/photo-1614026480209-cd9934144671?auto=format&fit=crop&q=80&w=800&h=600" alt="Audi RS Q8" class="w-full h-full object-cover absolute inset-0">
+                <div class="absolute top-3 left-3">
+                  <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-medium bg-success/90 backdrop-blur-sm text-white border border-success/20 shadow-sm">
+                    <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span> Активно
+                  </span>
+                </div>
+              </div>
+              
+              <!-- Content -->
+              <div class="flex-1 p-4 md:p-5 flex flex-col justify-between gap-4">
+                <div class="flex justify-between items-start">
+                  <div>
+                    <h3 class="font-semibold text-lg mb-1 group-hover:text-brand transition-colors cursor-pointer">Audi RS Q8 2023</h3>
+                    <p class="text-xs text-text-muted font-medium">#RN-98234 • Оплачено: <span class="text-text-main font-semibold">4 800 AED</span></p>
+                  </div>
+                  <button type="button" data-toast-message="Опции активного заказа..." data-toast-tone="info" aria-label="Опции" class="p-1.5 text-text-muted hover:bg-main rounded-md transition-colors -mt-1 -mr-1">
+                    <ion-icon name="ellipsis-vertical" class="text-xl"></ion-icon>
+                  </button>
+                </div>
+                
+                <div class="flex items-center gap-4 text-sm bg-brand/5 rounded-lg p-3 border border-brand/20">
+                  <div class="flex flex-col flex-1">
+                    <span class="text-text-muted text-xs uppercase tracking-[0.16em] font-semibold mb-0.5">Получение</span>
+                    <span class="font-medium text-text-main">12 Мая, 14:00</span>
+                  </div>
+                  <div class="w-px h-8 bg-brand/20"></div>
+                  <div class="flex flex-col flex-1">
+                    <span class="text-text-muted text-xs uppercase tracking-[0.16em] font-semibold mb-0.5">Возврат</span>
+                    <span class="font-medium text-text-main">16 Мая, 14:00</span>
+                  </div>
+                </div>
+
+                <div class="flex flex-wrap gap-3 md:justify-end mt-auto pt-1">
+                  <button type="button" data-overlay-open="modal-bottom-sheet" class="flex-1 md:flex-none flex justify-center items-center gap-2 bg-surface border border-surface-hover hover:bg-surface-hover text-text-main px-4 min-h-[40px] rounded-md font-medium text-sm transition-colors btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1">
+                    <ion-icon name="document-text-outline" class="text-lg text-text-muted"></ion-icon> Детали заказа
+                  </button>
+                  <button type="button" data-overlay-open="modal-extend" class="flex-1 md:flex-none flex justify-center items-center gap-2 bg-brand hover:bg-brand-hover text-white px-4 min-h-[40px] rounded-md font-medium text-sm transition-colors btn-spring shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1">
+                    <ion-icon name="time-outline" class="text-lg"></ion-icon> Продлить аренду
+                  </button>
+                </div>
+              </div>
+            </div>
+
             <!-- History Card 1 (Completed) -->
             <div class="bg-surface rounded-xl shadow-sm border border-surface-hover/50 overflow-hidden flex flex-col md:flex-row group hover:shadow-md transition-shadow">
               <!-- Image -->
               <div class="w-full md:w-56 h-48 md:h-auto bg-main relative shrink-0">
                 <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&q=80&w=800&h=600" alt="BMW 4 Series" class="w-full h-full object-cover absolute inset-0">
                 <div class="absolute top-3 left-3">
-                  <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] md:text-xs font-medium bg-surface/90 backdrop-blur-sm text-text-muted border border-surface-hover shadow-sm">
+                  <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-medium bg-surface/90 backdrop-blur-sm text-text-muted border border-surface-hover shadow-sm">
                     <ion-icon name="checkmark-circle-outline"></ion-icon> Завершено
                   </span>
                 </div>
@@ -455,28 +547,28 @@
                     <h3 class="font-semibold text-lg mb-1 group-hover:text-brand transition-colors cursor-pointer">BMW 4 Series Convertible 2022</h3>
                     <p class="text-xs text-text-muted font-medium">#RN-87421 • Оплачено: <span class="text-text-main font-semibold">2 400 AED</span></p>
                   </div>
-                  <button aria-label="Опции" class="p-1.5 text-text-muted hover:bg-main rounded-md transition-colors -mt-1 -mr-1">
+                  <button type="button" data-toast-message="Опции заказа..." data-toast-tone="info" aria-label="Опции" class="p-1.5 text-text-muted hover:bg-main rounded-md transition-colors -mt-1 -mr-1">
                     <ion-icon name="ellipsis-vertical" class="text-xl"></ion-icon>
                   </button>
                 </div>
                 
                 <div class="flex items-center gap-4 text-sm bg-main rounded-lg p-3 border border-surface-hover">
                   <div class="flex flex-col flex-1">
-                    <span class="text-text-muted text-[10px] uppercase font-semibold mb-0.5">Получение</span>
+                    <span class="text-text-muted text-xs uppercase tracking-[0.16em] font-semibold mb-0.5">Получение</span>
                     <span class="font-medium text-text-main">01 Сен, 10:00</span>
                   </div>
                   <div class="w-px h-8 bg-surface-hover"></div>
                   <div class="flex flex-col flex-1">
-                    <span class="text-text-muted text-[10px] uppercase font-semibold mb-0.5">Возврат</span>
+                    <span class="text-text-muted text-xs uppercase tracking-[0.16em] font-semibold mb-0.5">Возврат</span>
                     <span class="font-medium text-text-main">04 Сен, 10:00</span>
                   </div>
                 </div>
 
                 <div class="flex flex-wrap gap-3 md:justify-end mt-auto pt-1">
-                  <button onclick="document.getElementById('modal-bottom-sheet').classList.remove('translate-y-full'); document.getElementById('modal-bottom-sheet-overlay').classList.remove('hidden');" class="flex-1 md:flex-none flex justify-center items-center gap-2 bg-surface border border-surface-hover hover:bg-surface-hover text-text-main px-4 min-h-[40px] rounded-md font-medium text-sm transition-colors btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1">
+                  <button type="button" data-overlay-open="modal-bottom-sheet" class="flex-1 md:flex-none flex justify-center items-center gap-2 bg-surface border border-surface-hover hover:bg-surface-hover text-text-main px-4 min-h-[40px] rounded-md font-medium text-sm transition-colors btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1">
                     <ion-icon name="document-text-outline" class="text-lg text-text-muted"></ion-icon> Инвойс
                   </button>
-                  <button class="flex-1 md:flex-none flex justify-center items-center gap-2 bg-brand/10 hover:bg-brand/20 text-brand px-4 min-h-[40px] rounded-md font-medium text-sm transition-colors btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1">
+                  <button type="button" data-toast-message="Создание нового заказа..." data-toast-tone="info" class="flex-1 md:flex-none flex justify-center items-center gap-2 bg-brand/10 hover:bg-brand/20 text-brand px-4 min-h-[40px] rounded-md font-medium text-sm transition-colors btn-spring focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1">
                     <ion-icon name="refresh-outline" class="text-lg"></ion-icon> Повторить заказ
                   </button>
                 </div>
@@ -489,7 +581,7 @@
               <div class="w-full md:w-56 h-48 md:h-auto bg-main relative shrink-0 grayscale-[0.8] hover:grayscale-0 transition-all duration-300">
                 <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&q=80&w=800&h=600" alt="Mercedes C-Class" class="w-full h-full object-cover absolute inset-0">
                 <div class="absolute top-3 left-3">
-                  <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] md:text-xs font-medium bg-error/90 backdrop-blur-sm text-white border border-error/20 shadow-sm">
+                  <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-medium bg-error/90 backdrop-blur-sm text-white border border-error/20 shadow-sm">
                     <ion-icon name="close-circle-outline"></ion-icon> Отменено
                   </span>
                 </div>
@@ -502,25 +594,25 @@
                     <h3 class="font-semibold text-lg mb-1 text-text-main/80">Mercedes C-Class 2021</h3>
                     <p class="text-xs text-text-muted font-medium">#RN-76192 • Возврат средств: <span class="text-text-main/80 font-semibold">0 AED</span></p>
                   </div>
-                  <button aria-label="Опции" class="p-1.5 text-text-muted hover:bg-main rounded-md transition-colors -mt-1 -mr-1">
+                  <button type="button" data-toast-message="Опции заказа..." data-toast-tone="info" aria-label="Опции" class="p-1.5 text-text-muted hover:bg-main rounded-md transition-colors -mt-1 -mr-1">
                     <ion-icon name="ellipsis-vertical" class="text-xl"></ion-icon>
                   </button>
                 </div>
                 
                 <div class="flex items-center gap-4 text-sm bg-main/50 rounded-lg p-3 border border-surface-hover">
                   <div class="flex flex-col flex-1">
-                    <span class="text-text-muted text-[10px] uppercase font-semibold mb-0.5">Получение</span>
+                    <span class="text-text-muted text-xs uppercase tracking-[0.16em] font-semibold mb-0.5">Получение</span>
                     <span class="font-medium text-text-muted line-through">15 Авг, 12:00</span>
                   </div>
                   <div class="w-px h-8 bg-surface-hover"></div>
                   <div class="flex flex-col flex-1">
-                    <span class="text-text-muted text-[10px] uppercase font-semibold mb-0.5">Возврат</span>
+                    <span class="text-text-muted text-xs uppercase tracking-[0.16em] font-semibold mb-0.5">Возврат</span>
                     <span class="font-medium text-text-muted line-through">17 Авг, 12:00</span>
                   </div>
                 </div>
 
                 <div class="flex flex-wrap gap-3 md:justify-end mt-auto pt-1">
-                  <button class="flex-1 md:flex-none flex justify-center items-center gap-2 bg-brand hover:bg-brand-hover text-white px-5 min-h-[40px] rounded-md font-medium text-sm transition-colors btn-spring shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1">
+                  <button type="button" data-toast-message="Переход к бронированию..." data-toast-tone="info" class="flex-1 md:flex-none flex justify-center items-center gap-2 bg-brand hover:bg-brand-hover text-white px-5 min-h-[40px] rounded-md font-medium text-sm transition-colors btn-spring shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-1">
                     <ion-icon name="calendar-outline" class="text-lg"></ion-icon> Забронировать снова
                   </button>
                 </div>
@@ -531,7 +623,7 @@
         </div>
 
         <!-- PAGE: Finance -->
-        <div id="page-finance" class="page-content hidden max-w-4xl mx-auto space-y-6 pb-10">
+        <div id="page-finance" class="page-content hidden max-w-7xl w-full mx-auto space-y-6 pb-10">
           
           <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-2">
             <div>
@@ -553,6 +645,29 @@
 
           <!-- Tab Content: Invoices -->
           <div id="content-invoices" class="finance-content space-y-4">
+
+            <!-- Invoice Item (Unpaid) -->
+            <div class="bg-warning/5 rounded-xl shadow-sm border border-warning/30 p-4 md:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:shadow-md transition-shadow relative overflow-hidden">
+              <div class="absolute top-0 left-0 w-1 h-full bg-warning"></div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-full bg-warning/10 text-warning flex items-center justify-center shrink-0">
+                  <ion-icon name="time-outline" class="text-2xl"></ion-icon>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-text-main mb-0.5">Оплата аренды Mercedes C-Class</h3>
+                  <p class="text-xs text-text-muted">Инвойс #INV-2023-11-05 • Ожидает оплаты</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between sm:justify-end gap-4 w-full sm:w-auto border-t border-warning/20 sm:border-0 pt-3 sm:pt-0 mt-2 sm:mt-0">
+                <div class="text-left sm:text-right">
+                  <span class="block text-sm text-text-muted mb-0.5">Сумма</span>
+                  <span class="font-bold text-lg text-text-main">3 200 AED</span>
+                </div>
+                <button type="button" data-overlay-open="modal-standard" class="bg-warning hover:bg-warning/90 text-white px-4 py-2.5 rounded-md font-medium text-sm transition-colors shadow-sm btn-spring flex items-center gap-2">
+                  <ion-icon name="card-outline"></ion-icon> Оплатить
+                </button>
+              </div>
+            </div>
             
             <!-- Invoice Item 1 -->
             <div class="bg-surface rounded-xl shadow-sm border border-surface-hover/50 p-4 md:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group hover:shadow-md transition-shadow">
@@ -570,7 +685,7 @@
                   <span class="block text-sm text-text-muted mb-0.5">Сумма</span>
                   <span class="font-bold text-lg text-text-main">4 800 AED</span>
                 </div>
-                <button aria-label="Скачать инвойс" onclick="document.getElementById('modal-bottom-sheet').classList.remove('translate-y-full'); document.getElementById('modal-bottom-sheet-overlay').classList.remove('hidden');" class="w-10 h-10 rounded-full bg-main border border-surface-hover hover:border-brand hover:text-brand flex items-center justify-center transition-colors btn-spring">
+                <button type="button" aria-label="Скачать инвойс" data-overlay-open="modal-bottom-sheet" class="w-10 h-10 rounded-full bg-main border border-surface-hover hover:border-brand hover:text-brand flex items-center justify-center transition-colors btn-spring">
                   <ion-icon name="download-outline" class="text-lg"></ion-icon>
                 </button>
               </div>
@@ -592,7 +707,7 @@
                   <span class="block text-sm text-text-muted mb-0.5">Сумма</span>
                   <span class="font-bold text-lg text-text-main">2 400 AED</span>
                 </div>
-                <button aria-label="Скачать инвойс" onclick="document.getElementById('modal-bottom-sheet').classList.remove('translate-y-full'); document.getElementById('modal-bottom-sheet-overlay').classList.remove('hidden');" class="w-10 h-10 rounded-full bg-main border border-surface-hover hover:border-brand hover:text-brand flex items-center justify-center transition-colors btn-spring">
+                <button type="button" aria-label="Скачать инвойс" data-overlay-open="modal-bottom-sheet" class="w-10 h-10 rounded-full bg-main border border-surface-hover hover:border-brand hover:text-brand flex items-center justify-center transition-colors btn-spring">
                   <ion-icon name="download-outline" class="text-lg"></ion-icon>
                 </button>
               </div>
@@ -631,21 +746,21 @@
 
                   <div class="grid grid-cols-2 gap-4 bg-main rounded-lg p-3 border border-surface-hover mb-6">
                     <div>
-                      <span class="block text-[10px] text-text-muted uppercase font-semibold">Дата нарушения</span>
+                      <span class="block text-xs text-text-muted uppercase tracking-[0.16em] font-semibold">Дата нарушения</span>
                       <span class="text-sm font-medium">13 Окт 2023, 22:45</span>
                     </div>
                     <div>
-                      <span class="block text-[10px] text-text-muted uppercase font-semibold">Номер квитанции</span>
+                      <span class="block text-xs text-text-muted uppercase tracking-[0.16em] font-semibold">Номер квитанции</span>
                       <span class="text-sm font-medium">#FINE-998231</span>
                     </div>
                   </div>
                 </div>
 
                 <div class="flex flex-col sm:flex-row gap-3">
-                  <button class="flex-1 bg-surface border border-surface-hover hover:bg-surface-hover text-text-main min-h-[44px] rounded-md font-medium text-sm transition-colors btn-spring flex items-center justify-center gap-2">
+                  <button type="button" data-toast-message="Действие выполняется..." data-toast-tone="info" class="flex-1 bg-surface border border-surface-hover hover:bg-surface-hover text-text-main min-h-[44px] rounded-md font-medium text-sm transition-colors btn-spring flex items-center justify-center gap-2">
                     <ion-icon name="document-text-outline" class="text-lg"></ion-icon> Полицейский отчет
                   </button>
-                  <button class="flex-1 bg-error hover:bg-error/90 text-white min-h-[44px] rounded-md font-medium text-sm transition-colors btn-spring shadow-sm flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-error focus-visible:ring-offset-2">
+                  <button type="button" data-overlay-open="modal-standard" class="flex-1 bg-error hover:bg-error/90 text-white min-h-[44px] rounded-md font-medium text-sm transition-colors btn-spring shadow-sm flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-error focus-visible:ring-offset-2">
                     <ion-icon name="card-outline" class="text-lg"></ion-icon> Оплатить штраф
                   </button>
                 </div>
@@ -655,7 +770,7 @@
         </div>
 
         <!-- PAGE: Settings -->
-        <div id="page-settings" class="page-content hidden max-w-3xl mx-auto space-y-8 pb-10">
+        <div id="page-settings" class="page-content hidden max-w-7xl w-full mx-auto space-y-8 pb-10">
           
           <div>
             <h2 class="text-2xl md:text-3xl font-heading mb-1">Настройки профиля</h2>
@@ -671,7 +786,7 @@
               
               <div class="flex items-center gap-5">
                 <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=150&h=150" alt="Avatar" class="w-20 h-20 rounded-full object-cover border-2 border-surface-hover shadow-sm">
-                <button class="bg-surface border border-surface-hover hover:bg-surface-hover text-text-main px-4 min-h-[40px] rounded-md font-medium text-sm transition-colors btn-spring">
+                <button type="button" data-toast-message="Действие выполняется..." data-toast-tone="info" class="bg-surface border border-surface-hover hover:bg-surface-hover text-text-main px-4 min-h-[40px] rounded-md font-medium text-sm transition-colors btn-spring">
                   Изменить фото
                 </button>
               </div>
@@ -694,7 +809,7 @@
               </div>
 
               <div class="pt-2 flex justify-end">
-                <button class="bg-brand hover:bg-brand-hover text-white px-6 min-h-[44px] rounded-md font-medium text-sm transition-colors btn-spring shadow-sm">
+                <button type="button" data-toast-message="Действие выполняется..." data-toast-tone="info" class="bg-brand hover:bg-brand-hover text-white px-6 min-h-[44px] rounded-md font-medium text-sm transition-colors btn-spring shadow-sm">
                   Сохранить изменения
                 </button>
               </div>
@@ -718,7 +833,7 @@
                     <p class="text-xs text-text-muted">Загружено 10 Апр 2023</p>
                   </div>
                 </div>
-                <button class="text-text-muted hover:text-brand transition-colors p-2">
+                <button type="button" data-toast-message="Действие выполняется..." data-toast-tone="info" class="text-text-muted hover:text-brand transition-colors p-2">
                   <ion-icon name="create-outline" class="text-lg"></ion-icon>
                 </button>
               </div>
@@ -732,7 +847,7 @@
                     <p class="text-xs text-text-muted">Загружено 10 Апр 2023</p>
                   </div>
                 </div>
-                <button class="text-text-muted hover:text-brand transition-colors p-2">
+                <button type="button" data-toast-message="Действие выполняется..." data-toast-tone="info" class="text-text-muted hover:text-brand transition-colors p-2">
                   <ion-icon name="create-outline" class="text-lg"></ion-icon>
                 </button>
               </div>
@@ -760,7 +875,7 @@
                 </div>
               </div>
               <div class="pt-2">
-                <button class="bg-surface border border-surface-hover hover:bg-surface-hover text-text-main px-6 min-h-[44px] rounded-md font-medium text-sm transition-colors btn-spring shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand">
+                <button type="button" data-toast-message="Действие выполняется..." data-toast-tone="info" class="bg-surface border border-surface-hover hover:bg-surface-hover text-text-main px-6 min-h-[44px] rounded-md font-medium text-sm transition-colors btn-spring shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand">
                   Обновить пароль
                 </button>
               </div>
@@ -777,7 +892,7 @@
                 <h4 class="font-medium text-text-main mb-1">Удаление аккаунта</h4>
                 <p class="text-sm text-text-muted">Навсегда удалить профиль и все персональные данные.</p>
               </div>
-              <button onclick="document.getElementById('modal-delete-account').classList.remove('hidden')" class="shrink-0 bg-surface border border-error hover:bg-error hover:text-white text-error px-5 min-h-[44px] rounded-md font-medium text-sm transition-all btn-spring">
+              <button type="button" data-overlay-open="modal-delete-account" class="shrink-0 bg-surface border border-error hover:bg-error hover:text-white text-error px-5 min-h-[44px] rounded-md font-medium text-sm transition-all btn-spring">
                 Удалить аккаунт
               </button>
             </div>
@@ -790,24 +905,169 @@
   </div>
 
   <!-- Mock: Delete Account Modal -->
-  <div id="modal-delete-account" class="hidden fixed inset-0 bg-text-main/40 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
-    <div class="absolute inset-0" onclick="document.getElementById('modal-delete-account').classList.add('hidden')"></div>
+  <div id="modal-delete-account" class="hidden fixed inset-0 bg-text-main/40 backdrop-blur-sm z-[100] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-delete-title" aria-describedby="modal-delete-description" aria-hidden="true">
+    <div class="absolute inset-0" data-overlay-close="modal-delete-account"></div>
     <div class="bg-surface w-full max-w-sm rounded-xl shadow-2xl border border-surface-hover overflow-hidden text-center p-6 relative z-10">
       <div class="w-12 h-12 rounded-full bg-error/10 text-error flex items-center justify-center mx-auto mb-4">
         <ion-icon name="trash-outline" class="text-2xl"></ion-icon>
       </div>
-      <h3 class="font-semibold text-lg mb-2">Удалить аккаунт?</h3>
-      <p class="text-sm text-text-muted mb-6">Это действие необратимо. Вся ваша личная информация будет удалена (кроме истории финансовых транзакций).</p>
+      <h3 id="modal-delete-title" class="font-semibold text-lg mb-2">Удалить аккаунт?</h3>
+      <p id="modal-delete-description" class="text-sm text-text-muted mb-6">Это действие необратимо. Вся ваша личная информация будет удалена, кроме истории финансовых транзакций.</p>
       <div class="flex flex-col sm:flex-row gap-3">
-        <button onclick="document.getElementById('modal-delete-account').classList.add('hidden')" class="w-full bg-surface border border-surface-hover hover:bg-surface-hover text-text-main py-2.5 rounded-md font-medium text-sm transition-colors">
+        <button type="button" data-overlay-close="modal-delete-account" class="w-full bg-surface border border-surface-hover hover:bg-surface-hover text-text-main py-2.5 rounded-md font-medium text-sm transition-colors">
           Отмена
         </button>
-        <button onclick="document.getElementById('modal-delete-account').classList.add('hidden')" class="w-full bg-error hover:bg-error/90 text-white py-2.5 rounded-md font-medium text-sm shadow-sm btn-spring">
+        <button type="button" data-overlay-close="modal-delete-account" data-toast-message="Запрос на удаление отправлен в поддержку" data-toast-tone="success" class="w-full bg-error hover:bg-error/90 text-white py-2.5 rounded-md font-medium text-sm shadow-sm btn-spring">
           Да, удалить
         </button>
       </div>
     </div>
   </div>
+
+  <!-- Modal: Extend Rent -->
+  <div id="modal-extend" class="hidden fixed inset-0 bg-text-main/40 backdrop-blur-sm z-[100] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-extend-title" aria-hidden="true">
+    <div class="absolute inset-0" data-overlay-close="modal-extend"></div>
+    <div class="bg-surface w-full max-w-md rounded-xl shadow-2xl border border-surface-hover overflow-hidden p-6 relative z-10">
+      <div class="flex justify-between items-center mb-6">
+        <h3 id="modal-extend-title" class="font-semibold text-xl">Продление аренды</h3>
+        <button type="button" data-overlay-close="modal-extend" aria-label="Закрыть окно продления" class="text-text-muted hover:text-text-main transition-colors">
+          <ion-icon name="close-outline" class="text-2xl"></ion-icon>
+        </button>
+      </div>
+      
+      <!-- Current Dates Info -->
+      <div class="bg-brand/5 border border-brand/20 rounded-lg p-4 mb-6">
+        <div class="flex items-center gap-4 text-sm">
+          <div class="flex flex-col flex-1">
+            <span class="text-text-muted text-xs uppercase tracking-[0.16em] font-semibold mb-1">Текущее начало</span>
+            <span class="font-medium text-text-main">12 Мая, 14:00</span>
+          </div>
+          <div class="w-px h-8 bg-brand/20"></div>
+          <div class="flex flex-col flex-1">
+            <span class="text-text-muted text-xs uppercase tracking-[0.16em] font-semibold mb-1">Текущее окончание</span>
+            <span class="font-medium text-error">16 Мая, 14:00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- New End Date Selection -->
+      <div class="space-y-4 mb-6">
+        <h4 class="text-sm font-semibold text-text-main">Новая дата возврата</h4>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="space-y-1.5">
+            <label class="text-xs text-text-muted">Дата</label>
+            <input type="date" value="2026-05-18" class="w-full bg-main border border-surface-hover rounded-md px-3 py-2 text-sm text-text-main focus:outline-none focus:ring-2 focus:ring-brand/50">
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-xs text-text-muted">Время</label>
+            <input type="time" value="14:00" class="w-full bg-main border border-surface-hover rounded-md px-3 py-2 text-sm text-text-main focus:outline-none focus:ring-2 focus:ring-brand/50">
+          </div>
+        </div>
+        <div class="flex justify-between items-center text-sm pt-2">
+          <span class="text-text-muted">Доплата за 2 суток:</span>
+          <span class="font-bold text-lg text-brand">1 600 AED</span>
+        </div>
+      </div>
+      
+      <h4 class="text-sm font-semibold text-text-main mb-3">Способ оплаты</h4>
+      <div class="space-y-2 mb-6">
+        <label class="flex items-center gap-3 p-3 border border-brand bg-brand/5 rounded-lg cursor-pointer">
+          <input type="radio" name="payment_extend" checked class="text-brand focus:ring-brand">
+          <span class="font-medium text-sm">Банковская карта (**** 4242)</span>
+        </label>
+        <label class="flex items-center gap-3 p-3 border border-surface-hover rounded-lg cursor-pointer">
+          <input type="radio" name="payment_extend" class="text-brand focus:ring-brand">
+          <span class="font-medium text-sm">Apple Pay</span>
+        </label>
+      </div>
+
+      <button type="button" data-overlay-close="modal-extend" data-toast-message="Аренда успешно продлена" data-toast-tone="success" class="w-full bg-brand hover:bg-brand-hover text-white py-3 rounded-md font-medium text-sm shadow-sm btn-spring">
+        Оплатить и продлить
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal: Standard (e.g. Extend / Pay) -->
+  <div id="modal-standard" class="hidden fixed inset-0 bg-text-main/40 backdrop-blur-sm z-[100] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-standard-title" aria-hidden="true">
+    <div class="absolute inset-0" data-overlay-close="modal-standard"></div>
+    <div class="bg-surface w-full max-w-md rounded-xl shadow-2xl border border-surface-hover overflow-hidden p-6 relative z-10">
+      <div class="flex justify-between items-center mb-4">
+        <h3 id="modal-standard-title" class="font-semibold text-xl">Оплата счета</h3>
+        <button type="button" data-overlay-close="modal-standard" aria-label="Закрыть окно оплаты" class="text-text-muted hover:text-text-main transition-colors">
+          <ion-icon name="close-outline" class="text-2xl"></ion-icon>
+        </button>
+      </div>
+      <p class="text-sm text-text-muted mb-6">Выберите метод оплаты для завершения транзакции.</p>
+      
+      <div class="space-y-3 mb-6">
+        <label class="flex items-center gap-3 p-3 border border-brand bg-brand/5 rounded-lg cursor-pointer">
+          <input type="radio" name="payment" checked class="text-brand focus:ring-brand">
+          <span class="font-medium text-sm">Банковская карта (**** 4242)</span>
+        </label>
+        <label class="flex items-center gap-3 p-3 border border-surface-hover rounded-lg cursor-pointer">
+          <input type="radio" name="payment" class="text-brand focus:ring-brand">
+          <span class="font-medium text-sm">Apple Pay</span>
+        </label>
+      </div>
+
+      <button type="button" data-overlay-close="modal-standard" data-toast-message="Оплата успешно завершена" data-toast-tone="success" class="w-full bg-brand hover:bg-brand-hover text-white py-3 rounded-md font-medium text-sm shadow-sm btn-spring">
+        Подтвердить и оплатить
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal: Destructive (e.g. Cancel) -->
+  <div id="modal-destructive" class="hidden fixed inset-0 bg-text-main/40 backdrop-blur-sm z-[100] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="modal-destructive-title" aria-describedby="modal-destructive-description" aria-hidden="true">
+    <div class="absolute inset-0" data-overlay-close="modal-destructive"></div>
+    <div class="bg-surface w-full max-w-sm rounded-xl shadow-2xl border border-surface-hover overflow-hidden text-center p-6 relative z-10">
+      <div class="w-12 h-12 rounded-full bg-error/10 text-error flex items-center justify-center mx-auto mb-4">
+        <ion-icon name="warning-outline" class="text-2xl"></ion-icon>
+      </div>
+      <h3 id="modal-destructive-title" class="font-semibold text-lg mb-2">Отменить бронирование?</h3>
+      <p id="modal-destructive-description" class="text-sm text-text-muted mb-6">Вы уверены, что хотите отменить аренду? Возврат средств будет произведен согласно правилам тарифа.</p>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <button type="button" data-overlay-close="modal-destructive" class="w-full bg-surface border border-surface-hover hover:bg-surface-hover text-text-main py-2.5 rounded-md font-medium text-sm transition-colors">
+          Назад
+        </button>
+        <button type="button" data-overlay-close="modal-destructive" data-toast-message="Запрос на отмену принят" data-toast-tone="success" class="w-full bg-error hover:bg-error/90 text-white py-2.5 rounded-md font-medium text-sm shadow-sm btn-spring">
+          Отменить аренду
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Bottom Sheet (e.g. Invoice Info) -->
+  <div id="modal-bottom-sheet-overlay" class="hidden fixed inset-0 bg-text-main/40 backdrop-blur-sm z-[100]" aria-hidden="true" data-overlay-close="modal-bottom-sheet"></div>
+  <div id="modal-bottom-sheet" class="hidden fixed inset-x-0 bottom-0 z-[110] bg-surface border-t border-surface-hover rounded-t-2xl shadow-2xl transform translate-y-full transition-transform duration-300 ease-out max-h-[90vh] overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modal-bottom-sheet-title" aria-hidden="true">
+    <div class="w-12 h-1.5 bg-surface-hover rounded-full mx-auto my-3"></div>
+    <div class="p-6 max-w-2xl mx-auto">
+      <div class="flex justify-between items-center mb-6">
+        <h3 id="modal-bottom-sheet-title" class="font-semibold text-xl">Детали инвойса</h3>
+        <button type="button" data-overlay-close="modal-bottom-sheet" aria-label="Закрыть детали инвойса" class="text-text-muted hover:text-text-main transition-colors">
+          <ion-icon name="close-outline" class="text-2xl"></ion-icon>
+        </button>
+      </div>
+      <div class="space-y-4 mb-6">
+        <div class="flex justify-between text-sm border-b border-surface-hover pb-3">
+          <span class="text-text-muted">Услуга</span>
+          <span class="font-medium">Аренда авто</span>
+        </div>
+        <div class="flex justify-between text-sm border-b border-surface-hover pb-3">
+          <span class="text-text-muted">Даты</span>
+          <span class="font-medium">01 Сен - 04 Сен</span>
+        </div>
+        <div class="flex justify-between text-lg font-bold pt-2">
+          <span>Итого</span>
+          <span class="text-brand">2 400 AED</span>
+        </div>
+      </div>
+      <button type="button" data-overlay-close="modal-bottom-sheet" data-toast-message="PDF будет доступен в релизной версии" data-toast-tone="info" class="w-full bg-surface border border-surface-hover hover:bg-surface-hover text-text-main py-3 rounded-md font-medium text-sm transition-colors btn-spring flex justify-center items-center gap-2">
+        <ion-icon name="download-outline" class="text-lg"></ion-icon> Скачать PDF
+      </button>
+    </div>
+  </div>
+
+  <div id="toast-region" class="pointer-events-none fixed inset-x-4 bottom-4 z-[130] flex flex-col items-stretch gap-2 sm:left-auto sm:right-4 sm:max-w-sm" aria-live="polite" aria-atomic="true"></div>
 
   <script src="app.js"></script>
 </body>
