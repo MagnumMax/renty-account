@@ -10,7 +10,6 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -59,11 +58,7 @@
       <div class="w-8 h-8 bg-brand rounded-md flex items-center justify-center text-white font-heading text-xl shadow-sm">R</div>
       <h1 class="font-heading text-xl md:text-2xl tracking-wide">UI KIT</h1>
     </div>
-    <div class="flex items-center gap-4">
-      <button id="theme-toggle" aria-label="Переключить тему" class="p-2 rounded-full hover:bg-surface-hover focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none transition-colors text-text-muted hover:text-text-main btn-spring min-w-[44px] min-h-[44px] flex items-center justify-center">
-        <ion-icon name="moon-outline" class="text-xl"></ion-icon>
-      </button>
-    </div>
+    <div class="text-sm font-medium text-text-muted">Светлая тема</div>
   </header>
 
   <div class="max-w-7xl w-full mx-auto px-4 md:px-6 space-y-12 md:space-y-16">
@@ -511,31 +506,5 @@
     </div>
   </div>
 
-  <script>
-    // Theme Toggle Logic
-    const toggleBtn = document.getElementById('theme-toggle');
-    const html = document.documentElement;
-    const icon = toggleBtn.querySelector('ion-icon');
-
-    // Check system preference initially
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      html.setAttribute('data-theme', 'dark');
-      html.classList.add('dark');
-      icon.setAttribute('name', 'sunny-outline');
-    }
-
-    toggleBtn.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme');
-      if (currentTheme === 'dark') {
-        html.setAttribute('data-theme', 'light');
-        html.classList.remove('dark');
-        icon.setAttribute('name', 'moon-outline');
-      } else {
-        html.setAttribute('data-theme', 'dark');
-        html.classList.add('dark');
-        icon.setAttribute('name', 'sunny-outline');
-      }
-    });
-  </script>
 </body>
 </html>

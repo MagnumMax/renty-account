@@ -229,6 +229,24 @@ body.modal-open {
   }
 }
 
+@media (hover: hover) {
+  /* Cards lift effect */
+  .group.hover\:shadow-md:hover,
+  .group.hover\:shadow-lg:hover,
+  .bg-surface.group:hover {
+    transform: translateY(-1px);
+    transition: transform 0.24s var(--transition-spring), box-shadow 0.24s ease;
+  }
+  
+  /* Make buttons slightly lift on hover for better tactile feel */
+  button.btn-spring:hover {
+    transform: translateY(-1px);
+  }
+  button.btn-spring:active {
+    transform: scale(0.985);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;

@@ -77,10 +77,16 @@ document.addEventListener('DOMContentLoaded', () => {
     item.classList.toggle('active', isActive);
     item.setAttribute('aria-current', isActive ? 'page' : 'false');
 
-    if (item.closest('#sidebar-desktop') || item.closest('#profile-dropdown-desktop')) {
+    if (
+      item.closest('#sidebar-desktop') ||
+      item.closest('#profile-dropdown-desktop') ||
+      item.closest('#mobile-drawer')
+    ) {
       item.classList.toggle('bg-white/10', isActive);
       item.classList.toggle('text-white', isActive);
-      item.classList.toggle('text-white/90', !isActive);
+      item.classList.toggle('font-semibold', isActive);
+      item.classList.toggle('text-white/85', !isActive);
+      item.classList.toggle('font-medium', !isActive);
       return;
     }
 
